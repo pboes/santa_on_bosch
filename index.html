@@ -1,17 +1,15 @@
 ---
-layout: none
-title: "Santa on Bosch – Audio Tracks"
 ---
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }}</title>
+  <title>Santa on Bosch – Audio Tracks</title>
   <style>
     html, body { height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
     body{
-      background: url("{{ site.baseurl }}/assets/backround.png") center/cover no-repeat fixed;
+      background: url("{{ site.baseurl }}/assets/background.png") center/cover no-repeat fixed;
       display:flex; align-items:center; justify-content:center;
       padding: 20px 0;
     }
@@ -59,13 +57,13 @@ title: "Santa on Bosch – Audio Tracks"
 </head>
 <body>
   <div class="card">
-    <h1></h1>🎵 {{ page.title }}</h1>
+    <h1>🎵 Santa on Bosch – Audio Tracks</h1>
     
     <ul class="track-list">
       {% for track in site.tracks %}
       <li>
         <a href="{{ site.baseurl }}{{ track.url }}">
-          <span class="track-number">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
+          <span class="track-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
           {{ track.title }}
         </a>
       </li>
