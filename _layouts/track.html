@@ -7,7 +7,7 @@
   <style>
     html, body { height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
     body{
-      background: url("{{ site.baseurl }}/assets/santa-bg.jpg") center/cover no-repeat fixed;
+      background: url("{{ site.baseurl }}/assets/backround.png") center/cover no-repeat fixed;
       display:flex; align-items:center; justify-content:center;
     }
     .card{
@@ -35,7 +35,7 @@
   <div class="card">
     <h1>{{ page.title }}</h1>
 
-    <button id="play">▶️ Abspuin</button>
+    <button id="play">▶️</button>
     <audio id="a" preload="none" controls style="display:none">
       <source src="{{ site.baseurl }}{{ page.audio }}" type="audio/mp4">
     </audio>

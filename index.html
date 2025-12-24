@@ -1,0 +1,76 @@
+---
+layout: none
+title: "Santa on Bosch – Audio Tracks"
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <style>
+    html, body { height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    body{
+      background: url("{{ site.baseurl }}/assets/backround.png") center/cover no-repeat fixed;
+      display:flex; align-items:center; justify-content:center;
+      padding: 20px 0;
+    }
+    .card{
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.72);
+      border-radius: 18px;
+      padding: 32px 24px;
+      width:min(620px, 92vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    h1{ font-size: 24px; margin: 0 0 24px; font-weight: 650; text-align: center; }
+    .track-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .track-list li {
+      margin-bottom: 12px;
+    }
+    .track-list a {
+      display: block;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    .track-list a:hover {
+      background: rgba(255,255,255,0.9);
+      border-color: rgba(0,0,0,0.1);
+      transform: translateX(4px);
+    }
+    .track-number {
+      opacity: 0.6;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1></h1>🎵 {{ page.title }}</h1>
+    
+    <ul class="track-list">
+      {% for track in site.tracks %}
+      <li>
+        <a href="{{ site.baseurl }}{{ track.url }}">
+          <span class="track-number">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
+          {{ track.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
