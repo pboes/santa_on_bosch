@@ -1,0 +1,6 @@
+title: Bosch Santa
+markdown: kramdown
+collections:
+  tracks:
+    output: true
+    permalink: /:collection/:name/
