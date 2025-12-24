@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <style>
+    html, body { height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    body{
+      background: url("{{ site.baseurl }}/assets/santa-bg.jpg") center/cover no-repeat fixed;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .card{
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.72);
+      border-radius: 18px;
+      padding: 22px 18px;
+      width:min(520px, 92vw);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      text-align:center;
+    }
+    h1{ font-size: 18px; margin: 0 0 14px; font-weight: 650; }
+    button{
+      appearance:none; border:0; border-radius: 999px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 650;
+      cursor:pointer;
+    }
+    audio{ width:100%; margin-top: 14px; }
+    .hint{ font-size: 12px; opacity:.75; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>{{ page.title }}</h1>
+
+    <button id="play">▶️ Abspuin</button>
+    <audio id="a" preload="none" controls style="display:none">
+      <source src="{{ site.baseurl }}{{ page.audio }}" type="audio/mp4">
+    </audio>
+
+    <div class="hint">Wenn’s am iPhone zickt: erst Button druckn, dann geht’s.</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("play");
+    const a = document.getElementById("a");
+    btn.addEventListener("click", async () => {
+      a.style.display = "block";
+      try { await a.play(); }
+      catch(e){ /* iOS braucht manchmal 2. Versuch */ }
+    });
+  </script>
+</body>
+</html>
